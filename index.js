@@ -45,7 +45,7 @@ const isExpired = (apiResponse) => {
       return false;
     }
   } else {
-    return false;
+    return true;
   }
 };
 
@@ -67,12 +67,11 @@ app.get("/image", async function (req, res) {
 });
 
 app.get("/payload", async function (req, res) {
-  if (apiResponse){
+  if (apiResponse) {
     res.send(JSON.stringify(apiResponse));
   } else {
     res.send("no payload");
   }
-  
 });
 
 getData();
