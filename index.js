@@ -31,7 +31,7 @@ const getGap = (apiResponse) => {
   );
 };
 
-const refresh = async (apiResponse) => {
+const refresh = async () => {
   if (isExpired(apiResponse)) {
     await getData();
   }
@@ -39,6 +39,7 @@ const refresh = async (apiResponse) => {
 const isExpired = (apiResponse) => {
   if (apiResponse) {
     let gap = getGap(apiResponse);
+   
     if (gap > 1) {
       return true;
     } else {
