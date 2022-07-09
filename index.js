@@ -63,7 +63,7 @@ app.get("/time", async function (req, res) {
 
 app.get("/image", async function (req, res) {
   await refresh();
-  res.send(apiResponse.current.code.split("_rotation")[0]);
+  res.send(apiResponse.current.asset);
 });
 
 app.get("/payload", async function (req, res) {
