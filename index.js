@@ -66,5 +66,14 @@ app.get("/image", async function (req, res) {
   res.send(apiResponse.current.code.split("_rotation")[0]);
 });
 
+app.get("/payload", async function (req, res) {
+  if (apiResponse){
+    res.send(JSON.stringify(apiResponse));
+  } else {
+    res.send("no payload");
+  }
+  
+});
+
 getData();
 app.listen(3000);
