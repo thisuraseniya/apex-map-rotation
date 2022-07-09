@@ -68,10 +68,19 @@ app.get("/image", async function (req, res) {
 
 app.get("/payload", async function (req, res) {
   if (apiResponse) {
-    res.send(JSON.stringify(apiResponse));
+    res.json(apiResponse);
   } else {
     res.send("no payload");
   }
+});
+
+app.get("/gap", async function (req, res) {
+  await refresh();
+  res.json({
+    gap: getGap(apiResponse),
+    mod_time: apiResponse.modifiedDate,
+    now_time: new Date(),
+  });
 });
 
 getData();
